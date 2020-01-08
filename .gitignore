@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-# /dist
+dist/js
 src/store
 src/firebase.js
 src/config.js
