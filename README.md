@@ -7,3 +7,5 @@ Aplikasi web yang ditujukan untuk merekap laporan medis
 - Firebase
 
 ### Demo
+login : test@gmail.com
+password : testapp
