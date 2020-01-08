@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
-import Registration from '../views/Registration.vue'
 import store from '../store/index'
 
 
@@ -59,14 +58,6 @@ const routes = [
       title:'Login - Medical WebApp'
     },
     beforeEnter:isNotAuthenticate,
-  },
-  {
-    path: '/registration',
-    name: 'registration',
-    component: Registration,
-    meta:{
-      title:'Registrasi - Medical WebApp'
-    }
   },
   {
     path: '/dashboard',

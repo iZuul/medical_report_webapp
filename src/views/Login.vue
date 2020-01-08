@@ -41,15 +41,8 @@
                                 
                 <v-row justify="center" align="center">
                     <v-col cols="12" class="text-center px-10">
-                    <v-btn rounded block color="primary" @click="onSignIn">Masuk</v-btn>
+                      <v-btn rounded block color="primary" @click="onSignIn">Masuk</v-btn>
                     </v-col>        
-                    <v-col cols="12" class="text-center">
-                    Belum punya akun?
-                    <v-btn text color="blue" :to="{name:'registration'}">Daftar</v-btn>
-                    </v-col>
-                    <!-- <v-col cols="12" class="text-center">
-                    <v-btn to="/">Menuju Dashboard</v-btn>
-                    </v-col> -->
                 </v-row>
               </v-form>
             </v-card>

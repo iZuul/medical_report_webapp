@@ -5,6 +5,8 @@ src/store
 src/firebase.js
 src/config.js
 src/views/todos
+src/views/Registration.vue
+src/router
 README2.md
 
 # local env files
