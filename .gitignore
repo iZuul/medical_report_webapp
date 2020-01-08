@@ -3,6 +3,7 @@ node_modules
 # /dist
 src/store
 src/firebase.js
+src/config.js
 src/views/todos
 README2.md
 
