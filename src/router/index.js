@@ -1,23 +1,110 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
+import Registration from '../views/Registration.vue'
+import store from '../store/index'
+
 
 Vue.use(VueRouter)
 
+const isAuthenticate = (to, from, next) => {
+  // console.log(store)
+  try {
+    if(store.getters['users/getIsLogin'] == false){
+      // console.log(store.getters)
+      next('/')
+    } else {
+      //console.log(store.getters)
+      next()
+    }
+    // console.log(store)
+  } catch(err) {
+    console.log(err)
+  }
+}
+
+const isNotAuthenticate = (to, from, next) => {
+  try {
+    if(store.state.users.isLogin === true){
+      next({name:'dashboard'})
+      console.log('terautentikasi') 
+    } else {
+      next()
+      console.log('tidak terautnetikasi')
+    }
+  } catch(err) {
+    console.log(err)
+  }
+}
+
+
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: Home
+    // will match everything
+    path: '*',
+    component:() => import('../views/NotFound.vue')
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path:'/',
+    name:'base',
+    redirect:{
+      name:'login'
+    }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
+    meta:{
+      title:'Login - Medical WebApp'
+    },
+    beforeEnter:isNotAuthenticate,
+  },
+  {
+    path: '/registration',
+    name: 'registration',
+    component: Registration,
+    meta:{
+      title:'Registrasi - Medical WebApp'
+    }
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    beforeEnter:isAuthenticate,
+    component: () => import('../views/Dashboard.vue'),
+    meta:{
+      title:'Dashboard - Medical WebApp'
+    }
+  },  
+  {
+    path: '/profile-settings',
+    name: 'profile-settings',
+    beforeEnter:isAuthenticate,
+    component: () => import('../views/user/ProfileSettings.vue'),
+    meta:{
+      title:'Pengaturan - Medical WebApp'
+    }
+  },
+  {
+    path: '/pasients',
+    name: 'pasients',
+    beforeEnter:isAuthenticate,
+    component: () => import('../views/pasients/ListPasients.vue'),
+    meta:{
+      title:'Pasien - Medical WebApp'
+    }
+  },
+  {
+    path: '/pasients/detail-pasient/:id',
+    name: 'detail-pasients',
+    pros: true,
+    beforeEnter:isAuthenticate,
+    component: () => import('../views/pasients/RecapsPasient.vue'),
+    meta:{
+      title:'Detail Pasien - Medical WebApp'
+    }
+  },
 ]
 
 const router = new VueRouter({
