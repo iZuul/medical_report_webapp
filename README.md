@@ -9,3 +9,5 @@ Aplikasi web yang ditujukan untuk merekap laporan medis
 ### Demo
 login : test@gmail.com
 password : testapp
+
+https://rekap-medis.netlify.com/
