@@ -1,12 +1,11 @@
 .DS_Store
 node_modules
-dist
-src/store
 src/firebase.js
 src/config.js
 src/views/todos
+dist
+src/store
 src/views/Registration.vue
-README2.md
 
 # local env files
 .env.local
