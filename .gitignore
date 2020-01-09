@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 src/firebase.js
-src/.env
 src/config.js
 src/views/todos
 dist
