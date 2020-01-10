@@ -10,4 +10,4 @@ Aplikasi web yang ditujukan untuk merekap laporan medis
 login : test@gmail.com
 password : testapp
 
-https://rekap-medis.netlify.com/
+https://pasienku.netlify.com/
